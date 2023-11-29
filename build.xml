@@ -1,0 +1,33 @@
+<!-- Define the classpath for the project -->
+<path id="classpath">
+    <fileset dir="${lib.dir}" includes="**/*.jar"/>
+</path>
+
+<!-- Define the target to clean the build directory -->
+<target name="clean">
+    <delete dir="${build.dir}"/>
+</target>
+
+<!-- Define the target to compile the source code -->
+<target name="compile" depends="clean">
+    <mkdir dir="${classes.dir}"/>
+    <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false" classpathref="classpath"/>
+</target>
+
+<!-- Define the target to create the jar file -->
+<target name="jar" depends="compile">
+    <mkdir dir="${jar.dir}"/>
+    <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
+        <manifest>
+            <attribute name="Main-Class" value="${main-class}"/>
+        </manifest>
+    </jar>
+</target>
+
+<!-- Define the target to run the jar file -->
+<target name="run" depends="jar">
+    <java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
+</target>
+
+<!-- Define the default target to build the project -->
+<target name="build" depends="run"/>
