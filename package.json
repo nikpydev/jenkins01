@@ -1,0 +1,29 @@
+{
+  "name": "jenkins01",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "nx": "nx",
+    "start:all": "nx run-many --target=serve --projects=backend-service,client-ui --configuration=production --parallel=2",
+    "backend-service": "nx serve backend-service",
+    "client-ui": "nx serve client-ui",
+    "start": "nx serve",
+    "build:bs": "nx run backend-service:build:production --bundle --skip-nx-cache",
+    "build:cui": "nx run client-ui:build:production --bundle --skip-nx-cache",
+    "backend-service:prod": "nx run backend-service:serve:production",
+    "client-ui:prod": "nx run client-ui:serve:production",
+    "depcheck": "depcheck",
+    "format:write": "nx format:write",
+    "format:check": "nx format:check"
+  },
+  "author": {
+    "name": "Nikhil Choudhary",
+    "email": "nc@g.c"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {}
+}
