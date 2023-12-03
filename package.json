@@ -14,16 +14,23 @@
     "client-ui:prod": "nx run client-ui:serve:production",
     "depcheck": "depcheck",
     "format:write": "nx format:write",
-    "format:check": "nx format:check"
+    "format:check": "nx format:check",
+    "test": "jest",
+    "build": "parcel build src/index.js",
+    "parcel": "parcel"
   },
   "author": {
     "name": "Nikhil Choudhary",
-    "email": "nc@g.c"
+    "email": "nc1336282@gmail.com"
   },
   "engines": {
     "node": ">=18.0.0"
   },
   "private": true,
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "jest": "^29.7.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.10.3"
+  }
 }
