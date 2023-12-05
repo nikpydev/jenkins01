@@ -78,6 +78,12 @@ date'''
       }
     }
 
+    stage('D') {
+      steps {
+        echo 'This is step D'
+      }
+    }
+
   }
   tools {
     nodejs 'NodeJS-01'
